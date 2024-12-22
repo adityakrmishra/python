@@ -1,0 +1,14 @@
+import asyncio
+
+async def async_task(name, delay):
+    await asyncio.sleep(delay)
+    print(f'Task {name} completed after {delay} seconds')
+
+async def main():
+    await asyncio.gather(
+        async_task('A', 2),
+        async_task('B', 3),
+        async_task('C', 1)
+    )
+
+asyncio.run(main())
